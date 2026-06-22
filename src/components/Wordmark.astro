@@ -1,0 +1,18 @@
+---
+// "First Serve" wordmark — Fraunces, court green. The text is ONE
+// unbroken run (kerning intact); the tennis ball is floated on top to
+// land on the "i" as its dot. Offsets are in em so they scale.
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<span
+  class={`font-display text-court-deep font-semibold whitespace-nowrap relative inline-block ${className}`}
+  style="line-height:1;"
+>First Serve<span
+    class="tennis-ball"
+    style="position:absolute;width:0.3em;height:0.3em;left:0.615em;top:0.22em;"
+    aria-hidden="true"
+  ></span></span>

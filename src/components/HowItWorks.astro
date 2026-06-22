@@ -1,0 +1,49 @@
+---
+const steps = [
+  {
+    n: '1',
+    title: 'Message me',
+    body: "Tap the WhatsApp button and say hi. We'll figure out whether group or private suits you best. No commitment yet.",
+  },
+  {
+    n: '2',
+    title: 'Come to your first session',
+    body: "Saturdays and Sundays in Almada, with class times slotted sometime between 4 and 8pm — we'll find the one that fits you. Bring water and curiosity, and borrow a racket if you need one.",
+  },
+  {
+    n: '3',
+    title: 'Actually play',
+    body: "By the end of the summer you'll rally, serve, and keep score — and you'll have had fun doing it.",
+  },
+];
+---
+
+<section id="how-it-works" class="reveal scroll-mt-20">
+  <div class="mx-auto max-w-content px-5 sm:px-8 py-20 md:py-28">
+    <div class="text-center max-w-2xl mx-auto">
+      <p class="font-body text-xs font-semibold tracking-widest uppercase text-clay mb-4">
+        How it works
+      </p>
+      <h2 class="font-display text-3xl md:text-4xl font-medium text-text">
+        Three steps to your first rally.
+      </h2>
+    </div>
+
+    <ol class="stagger mt-14 grid gap-8 md:grid-cols-3">
+      {
+        steps.map((s) => (
+          <li class="relative">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="flex h-11 w-11 items-center justify-center rounded-full bg-court text-white font-display text-xl font-semibold">
+                {s.n}
+              </span>
+              <span class="h-px flex-1 bg-line" aria-hidden="true" />
+            </div>
+            <h3 class="font-display text-xl font-medium text-text mb-2">{s.title}</h3>
+            <p class="font-body text-text-muted leading-relaxed">{s.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

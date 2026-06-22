@@ -1,0 +1,41 @@
+---
+const cards = [
+  {
+    title: "No one's watching, no one's judging",
+    body: 'Small, friendly sessions. We learn by laughing at the misses — yours and mine.',
+  },
+  {
+    title: "You don't need any gear",
+    body: 'Borrow a racket for €5. Show up in whatever you\'d wear for a walk.',
+  },
+  {
+    title: 'Any age, any fitness level',
+    body: "Tennis isn't about being athletic. It's about hitting one good ball, then another.",
+  },
+];
+---
+
+<section class="reveal" data-dust>
+  <div class="mx-auto max-w-content px-5 sm:px-8 py-20 md:py-28">
+    <div class="text-center max-w-2xl mx-auto">
+      <p class="font-body text-xs font-semibold tracking-widest uppercase text-clay mb-4">
+        No experience? Perfect.
+      </p>
+      <h2 class="font-display text-3xl md:text-4xl font-medium text-text">
+        Everyone here started at zero.
+      </h2>
+    </div>
+
+    <div class="stagger mt-14 grid gap-6 md:grid-cols-3">
+      {
+        cards.map((c) => (
+          <div class="card-lift bg-surface border border-line rounded-2xl p-7">
+            <span class="tennis-ball ball-bullet mb-5" aria-hidden="true" />
+            <h3 class="font-display text-xl font-medium text-text mb-2">{c.title}</h3>
+            <p class="font-body text-text-muted leading-relaxed">{c.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

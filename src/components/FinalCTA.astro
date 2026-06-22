@@ -1,0 +1,78 @@
+---
+import { waLink } from '../config';
+const wa = waLink();
+---
+
+<section class="reveal" data-dust>
+  <div class="mx-auto max-w-content px-5 sm:px-8 pb-24">
+    <div
+      class="relative overflow-hidden rounded-2xl px-6 py-16 md:py-20 text-center"
+      style="background: linear-gradient(160deg, #5B8C5A, #3E6B3D);"
+    >
+      <!-- The journey's payoff: the ball arcs in and lands on the button -->
+      <span class="arc-ball tennis-ball" aria-hidden="true"></span>
+
+      <h2 class="font-display text-3xl md:text-5xl font-medium text-white">
+        Summer spots are limited.
+      </h2>
+      <p class="mx-auto mt-5 max-w-md font-body text-base md:text-lg text-white/80 leading-relaxed">
+        Group sessions stay small on purpose, so everyone gets real attention.
+        Grab yours before they're gone.
+      </p>
+
+      <div class="mt-9">
+        <a
+          data-final-cta
+          href={wa}
+          target="_blank"
+          rel="noopener"
+          class="btn-clay inline-flex items-center gap-2 text-white font-semibold rounded-full px-8 py-4 text-base shadow-lg"
+        >
+          Message me on WhatsApp →
+        </a>
+      </div>
+
+      <p class="mt-7 font-body text-xs text-white/70">
+        Saturdays &amp; Sundays in Almada · Group &amp; private · Beginners only, always welcome
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .arc-ball {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+  /* Ball arcs across and lands when the section reveals.
+     Two-stage translate approximates a curved (parabolic) path. */
+  :global(.reveal.is-in) .arc-ball {
+    animation: arc-journey 1.1s cubic-bezier(0.4, 0, 0.5, 1) 0.25s both;
+  }
+  @keyframes arc-journey {
+    0% {
+      opacity: 0;
+      transform: translate(8vw, 10px) scale(1);
+    }
+    15% {
+      opacity: 1;
+    }
+    /* apex of the arc */
+    55% {
+      transform: translate(38vw, -28px) scale(1.05);
+    }
+    /* landing on/near the CTA button area */
+    100% {
+      opacity: 1;
+      transform: translate(50%, calc(100% - 12px)) scale(0.7);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .arc-ball { display: none; }
+  }
+</style>

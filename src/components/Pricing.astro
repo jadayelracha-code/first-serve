@@ -1,0 +1,87 @@
+---
+import { waLink } from '../config';
+const wa = waLink('Hi Rasha! I\'d like to join First Serve. Can you help me pick a plan?');
+
+// ⚠️ CONFIRM BEFORE LAUNCH: these prices are the founder's assumptions,
+// NOT validated against Almada/Lisbon market rates. Sanity-check first.
+const plans = [
+  {
+    name: 'Group · once a week',
+    price: '€35',
+    unit: '/ month',
+    desc: 'One group class a week · Saturdays & Sundays in Almada',
+    note: 'Social, low-pressure, the easiest way to start.',
+    popular: true,
+  },
+  {
+    name: 'Group · twice a week',
+    price: '€45',
+    unit: '/ month',
+    desc: 'Two group classes a week',
+    note: 'Faster progress.',
+    popular: false,
+  },
+  {
+    name: 'Private 1-on-1',
+    price: '€45',
+    unit: '/ lesson (50 min)',
+    desc: 'Lisbon · Cascais · Setúbal area',
+    note: 'Fully personal pace.',
+    popular: false,
+  },
+];
+---
+
+<section id="pricing" class="reveal scroll-mt-20 bg-surface/60">
+  <div class="mx-auto max-w-content px-5 sm:px-8 py-20 md:py-28">
+    <div class="text-center max-w-2xl mx-auto">
+      <p class="font-body text-xs font-semibold tracking-widest uppercase text-clay mb-4">
+        Simple pricing
+      </p>
+      <h2 class="font-display text-3xl md:text-4xl font-medium text-text">
+        Pick what fits your summer.
+      </h2>
+    </div>
+
+    <div class="stagger mt-14 grid gap-6 md:grid-cols-3 items-stretch">
+      {
+        plans.map((p) => (
+          <div
+            class={`card-lift relative flex flex-col bg-surface rounded-2xl p-7 border ${
+              p.popular ? 'popular-card border-court shadow-md' : 'border-line'
+            }`}
+          >
+            {p.popular && (
+              <span class="popular-tag absolute -top-3 left-7 inline-block bg-sun text-text text-xs font-semibold tracking-wide uppercase rounded-full px-3 py-1 shadow-sm">
+                Most popular
+              </span>
+            )}
+            <h3 class="font-display text-lg font-medium text-text mb-3">{p.name}</h3>
+            <p class="mb-3">
+              <span class="font-display text-4xl font-semibold text-court-deep">{p.price}</span>
+              <span class="font-body text-sm text-text-muted"> {p.unit}</span>
+            </p>
+            <p class="font-body text-sm text-text-muted">{p.desc}</p>
+            <p class="font-body text-text mt-2 flex-1">{p.note}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-8 text-center font-body text-sm text-text-muted max-w-xl mx-auto">
+      Racket rental €5 per session. Not sure which to pick? Just message me and
+      we'll figure it out together.
+    </p>
+
+    <div class="mt-8 text-center">
+      <a
+        href={wa}
+        target="_blank"
+        rel="noopener"
+        class="btn-clay inline-flex items-center gap-2 text-white font-semibold rounded-full px-8 py-4 text-base shadow-md"
+      >
+        Reserve your spot on WhatsApp →
+      </a>
+    </div>
+  </div>
+</section>

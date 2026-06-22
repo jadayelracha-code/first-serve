@@ -1,0 +1,44 @@
+---
+import Wordmark from './Wordmark.astro';
+import { waLink, FACEBOOK_URL, INSTAGRAM_URL, TIKTOK_URL } from '../config';
+const wa = waLink();
+
+// Only render social links that have a URL set.
+const socials = [
+  { label: 'Facebook', url: FACEBOOK_URL },
+  { label: 'Instagram', url: INSTAGRAM_URL },
+  { label: 'TikTok', url: TIKTOK_URL },
+].filter((s) => s.url);
+---
+
+<footer class="border-t border-line">
+  <div class="mx-auto max-w-content px-5 sm:px-8 py-10">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left">
+        <Wordmark class="text-lg" />
+        <p class="font-body text-sm text-text-muted mt-1">First Serve © 2026</p>
+      </div>
+
+      <p class="font-body text-sm text-text-muted text-center">
+        Almada · Lisbon · Cascais · Setúbal
+      </p>
+
+      <div class="flex items-center gap-5 font-body text-sm">
+        <a href={wa} target="_blank" rel="noopener" class="text-court-deep font-medium hover:underline underline-offset-4">
+          WhatsApp
+        </a>
+        {
+          socials.map((s) => (
+            <a href={s.url} target="_blank" rel="noopener" class="text-court-deep font-medium hover:underline underline-offset-4">
+              {s.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <p class="mt-8 text-center font-body text-xs text-text-muted">
+      Beginner tennis lessons with Rasha Jadayel.
+    </p>
+  </div>
+</footer>

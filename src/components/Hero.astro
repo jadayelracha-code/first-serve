@@ -1,0 +1,79 @@
+---
+import { waLink } from '../config';
+const wa = waLink();
+---
+
+<section
+  id="top"
+  class="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-16"
+>
+  <!-- faint tennis-court line texture (HERO ONLY) -->
+  <div class="court-lines" aria-hidden="true"></div>
+
+  <!-- warm sunlit glow -->
+  <div
+    class="absolute -top-40 left-1/2 -translate-x-1/2 w-[120vw] h-[60vh] rounded-full blur-3xl opacity-40 pointer-events-none"
+    style="background: radial-gradient(circle, #F2C14E55, transparent 65%);"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative z-10 mx-auto max-w-content px-5 sm:px-8 text-center">
+    <!-- The bouncing ball lands to the left of / above the headline -->
+    <div class="relative mx-auto mb-7 h-16 w-16">
+      <span class="hero-streak absolute left-1/2 top-0 -translate-x-1/2 -translate-y-10 w-1 h-12 rounded-full bg-sun/60" aria-hidden="true"></span>
+      <span class="hero-ball tennis-ball block h-16 w-16" aria-hidden="true"></span>
+    </div>
+
+    <!-- Eyebrow -->
+    <p class="font-body text-xs font-semibold tracking-widest uppercase text-clay mb-5">
+      ☀️ Summer 2026 · Almada
+    </p>
+
+    <!-- Headline -->
+    <h1 class="font-display text-5xl md:text-7xl font-medium tracking-tight leading-[1.05] text-text">
+      Never held a racket?<br />
+      That's <span class="marker-underline">exactly</span> who this is for.
+    </h1>
+
+    <!-- Subheadline -->
+    <p class="mx-auto mt-6 max-w-xl font-body text-base md:text-lg leading-relaxed text-text-muted">
+      First Serve is beginner tennis with zero judgment. No experience, no
+      fancy gear, no pressure — just the basics, the fun part, and a coach
+      who remembers being a beginner too.
+    </p>
+
+    <!-- CTAs -->
+    <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div class="relative">
+        <a
+          href={wa}
+          target="_blank"
+          rel="noopener"
+          class="btn-clay inline-flex items-center gap-2 text-white font-semibold rounded-full px-8 py-4 text-base shadow-md"
+        >
+          Reserve your summer spot →
+        </a>
+        <!-- hand-drawn arrow pointing IN at the CTA from the left -->
+        <svg
+          class="hidden sm:block absolute -left-[4.75rem] -top-8 w-16 h-16 text-court -rotate-6"
+          viewBox="0 0 64 64" fill="none" aria-hidden="true"
+        >
+          <path d="M6 16 C 24 8, 46 14, 52 40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M52 40 l -13 -1 M52 40 l -1 -13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <a
+        href="#how-it-works"
+        class="font-body text-court-deep font-medium hover:underline underline-offset-4"
+      >
+        See how it works ↓
+      </a>
+    </div>
+
+    <!-- Trust line -->
+    <p class="mt-8 font-body text-xs text-text-muted">
+      Saturdays &amp; Sundays in Almada · Group &amp; private lessons · Limited summer spots
+    </p>
+  </div>
+</section>
